@@ -2,9 +2,11 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class MathOperation {
 
@@ -106,4 +108,17 @@ public class MathOperation {
         return ans;
     }
 
+    public Set<Long> generator(Long num) {
+        Set<Long> generatorList = new HashSet<>();
+        for (Long i = 2L; i < num - 1; i++) {
+            if (generatorList.contains(i))
+                continue;
+            if (fastExpo(i, (num - 1) / 2, num) != 1) {
+                generatorList.add(i);
+            } else {
+                generatorList.add(num - i);
+            }
+        }
+        return generatorList;
+    }
 }

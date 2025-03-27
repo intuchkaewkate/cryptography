@@ -101,7 +101,7 @@ public class Prime {
             while (number <= upperBound) {
                 // System.out.println(number);
                 // System.out.print(".");
-                if (isPrime(number)) {
+                if (isPrime(number) && isPrime((number - 1) / 2)) { // Safe Prime
                     return number;
                 }
                 number++;
