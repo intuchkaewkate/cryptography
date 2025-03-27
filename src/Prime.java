@@ -98,13 +98,14 @@ public class Prime {
             }
 
             // หาจำนวนเฉพาะถัดไปในช่วงที่กำหนด
+            if (number % 2 == 0) {
+                number++; // ถ้าเริ่มต้นจากเลขคู่ ให้เพิ่ม 1 เพื่อให้เป็นเลขคี่
+            }
             while (number <= upperBound) {
-                // System.out.println(number);
-                // System.out.print(".");
                 if (isPrime(number) && isPrime((number - 1) / 2)) { // Safe Prime
                     return number;
                 }
-                number++;
+                number += 2; // เพิ่มทีละ 2 เพื่อข้ามเลขคู่
             }
 
             return -1L; // ไม่พบจำนวนเฉพาะในช่วงที่กำหนด

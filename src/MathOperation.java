@@ -55,8 +55,8 @@ public class MathOperation {
                 auxillaryList.add(1, (long) 1); // ค่าเริ่มต้น
             } else {
                 // คำนวณค่า auxillary (สัมประสิทธิ์ที่ใช้หาค่า inverse)
-                auxillaryList.add(step, (auxillaryList.get(step - 2)
-                        - (auxillaryList.get(step - 1) * quotientList.get(step - 2))) % masterMod);
+                Long x = auxillaryList.get(step - 2) - (auxillaryList.get(step - 1) * quotientList.get(step - 2));
+                auxillaryList.add(step, x % masterMod);
             }
 
             // เช็คถ้าเศษเป็น 0 แล้ว
